@@ -26,30 +26,45 @@
                                     <items>
                                         <barButtonItem style="plain" id="eT0-Y1-bpW">
                                             <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Character Name" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" id="fdJ-MB-Ez1">
-                                                <rect key="frame" x="16" y="7" width="131" height="30"/>
+                                                <rect key="frame" x="16" y="7" width="97" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </barButtonItem>
                                         <barButtonItem style="plain" id="hRN-V0-jRK">
                                             <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Actor/Actress Name" minimumFontSize="17" clearButtonMode="whileEditing" id="Vpt-y4-2aj">
-                                                <rect key="frame" x="157" y="7" width="140" height="30"/>
+                                                <rect key="frame" x="123" y="7" width="123" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </barButtonItem>
+                                        <barButtonItem style="plain" id="buV-D3-zHP">
+                                            <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="M or F" minimumFontSize="17" id="DdO-L4-hyp">
+                                                <rect key="frame" x="256" y="7" width="60" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </barButtonItem>
                                     </items>
                                 </toolbar>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyCellReuseCellID" textLabel="ewm-qo-Rw6" detailTextLabel="D8r-9U-jT8" style="IBUITableViewCellStyleSubtitle" id="IMt-jz-pxr">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyCellReuseCellID" textLabel="ewm-qo-Rw6" detailTextLabel="D8r-9U-jT8" style="IBUITableViewCellStyleSubtitle" id="IMt-jz-pxr" customClass="MyCellTableViewCell">
                                         <rect key="frame" x="0.0" y="130" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IMt-jz-pxr" id="DED-9K-2VK">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0J-RX-uyA">
+                                                    <rect key="frame" x="139" y="11" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ewm-qo-Rw6">
                                                     <rect key="frame" x="15" y="3" width="34" height="22"/>
                                                     <autoresizingMask key="autoresizingMask"/>
@@ -65,7 +80,14 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="G0J-RX-uyA" firstAttribute="centerY" secondItem="DED-9K-2VK" secondAttribute="centerY" id="NR7-lJ-njq"/>
+                                                <constraint firstItem="G0J-RX-uyA" firstAttribute="centerX" secondItem="DED-9K-2VK" secondAttribute="centerX" id="foi-Q6-BgV"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="genderLabel" destination="G0J-RX-uyA" id="LTL-v8-k1q"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -86,6 +108,7 @@
                     <connections>
                         <outlet property="actorNameTextField" destination="Vpt-y4-2aj" id="fWi-YR-2eV"/>
                         <outlet property="characterNameTextField" destination="fdJ-MB-Ez1" id="TVB-Se-MnN"/>
+                        <outlet property="genderTextField" destination="DdO-L4-hyp" id="RG9-WM-ng2"/>
                         <outlet property="lostTableVlew" destination="1oH-9J-2Zb" id="zxT-qu-b9c"/>
                     </connections>
                 </viewController>

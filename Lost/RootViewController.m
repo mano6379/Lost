@@ -9,6 +9,7 @@
 #import "RootViewController.h"
 #import <CoreData/CoreData.h>
 #import "Character.h"
+#import "MyCellTableViewCell.h"
 
 @interface RootViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -16,6 +17,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *lostTableVlew;
 @property (strong, nonatomic) IBOutlet UITextField *characterNameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *actorNameTextField;
+@property (strong, nonatomic) IBOutlet UITextField *genderTextField;
 
 
 @end
@@ -76,7 +78,21 @@
     [self.lostTableVlew reloadData];
 }
 
+#pragma mark -- Delete cells from Table View
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        [self.managedObjectContext deleteObject:self.charactersArray[indexPath.row]];
+        [self.managedObjectContext save:nil];
+        [self load];
+    }
+}
 
+-(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"Smoke Monster";
+}
 
 #pragma mark -- TableView Delegate methods:
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -87,20 +103,39 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Character *person = self.charactersArray[indexPath.row];
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyCellReuseCellID"];
+    MyCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyCellReuseCellID"];
     cell.textLabel.text = person.actor.description;
     cell.detailTextLabel.text = person.passenger.description;
+    cell.genderLabel.text = person.sex.description;
+//    UIButton *checkBoxButton = [[UIButton alloc] initWithFrame:CGRectMake(4, 4, 36, 36)];
+//    
+//    [checkBoxButton setImage:[UIImage imageNamed:@"checkbox.png"] forState:UIControlStateNormal];
+//    
+//    [checkBoxButton setImage:[UIImage imageNamed:@"checkbox-pressed.png"] forState:UIControlStateHighlighted];
+//    
+//    [checkBoxButton setImage:[UIImage imageNamed:@"checkbox-checked.png"] forState:UIControlStateSelected];
+//    
+//    checkBoxButton.tag = indexPath.row;
+//    
+//    [checkBoxButton addTarget:self action:@selector(checkBoxButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+//    
+//    //This add the UIButton to the Cell.
+//    [cell.contentView addSubview:checkBoxButton];
+    
     return cell;
 }
 
 - (IBAction)addCharacter:(id)sender
 
 {
+    
     Character* character = [NSEntityDescription insertNewObjectForEntityForName:@"Character" inManagedObjectContext:self.managedObjectContext];
     character.actor = self.characterNameTextField.text;
     character.passenger = self.actorNameTextField.text;
+    character.sex = self.genderTextField.text;
     [self.characterNameTextField resignFirstResponder];
     [self.actorNameTextField resignFirstResponder];
+    [self.genderTextField resignFirstResponder];
     [self.managedObjectContext save:nil];
     [self load];
 }

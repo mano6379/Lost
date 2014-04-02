@@ -24,7 +24,8 @@
 		D09DB62E18EB429F00ECC8AE /* LostTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D09DB62D18EB429F00ECC8AE /* LostTests.m */; };
 		D09DB63818EB474300ECC8AE /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D09DB63718EB474300ECC8AE /* Storyboard.storyboard */; };
 		D09DB63B18EB486100ECC8AE /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D09DB63A18EB486100ECC8AE /* RootViewController.m */; };
-		D09DB63E18EB587A00ECC8AE /* Character.m in Sources */ = {isa = PBXBuildFile; fileRef = D09DB63D18EB587A00ECC8AE /* Character.m */; };
+		D09DB64118EB9B4C00ECC8AE /* MyCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D09DB64018EB9B4C00ECC8AE /* MyCellTableViewCell.m */; };
+		D09DB64418EB9FEC00ECC8AE /* Character.m in Sources */ = {isa = PBXBuildFile; fileRef = D09DB64318EB9FEC00ECC8AE /* Character.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,8 +60,10 @@
 		D09DB63718EB474300ECC8AE /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		D09DB63918EB486100ECC8AE /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		D09DB63A18EB486100ECC8AE /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		D09DB63C18EB587A00ECC8AE /* Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Character.h; sourceTree = "<group>"; };
-		D09DB63D18EB587A00ECC8AE /* Character.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Character.m; sourceTree = "<group>"; };
+		D09DB63F18EB9B4C00ECC8AE /* MyCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCellTableViewCell.h; sourceTree = "<group>"; };
+		D09DB64018EB9B4C00ECC8AE /* MyCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCellTableViewCell.m; sourceTree = "<group>"; };
+		D09DB64218EB9FEC00ECC8AE /* Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Character.h; sourceTree = "<group>"; };
+		D09DB64318EB9FEC00ECC8AE /* Character.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Character.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,11 +129,13 @@
 				D09DB61318EB429F00ECC8AE /* AppDelegate.h */,
 				D09DB61418EB429F00ECC8AE /* AppDelegate.m */,
 				D09DB61918EB429F00ECC8AE /* Images.xcassets */,
+				D09DB64218EB9FEC00ECC8AE /* Character.h */,
+				D09DB64318EB9FEC00ECC8AE /* Character.m */,
 				D09DB61618EB429F00ECC8AE /* Lost.xcdatamodeld */,
-				D09DB63C18EB587A00ECC8AE /* Character.h */,
-				D09DB63D18EB587A00ECC8AE /* Character.m */,
 				D09DB60B18EB429F00ECC8AE /* Supporting Files */,
 				D09DB63718EB474300ECC8AE /* Storyboard.storyboard */,
+				D09DB63F18EB9B4C00ECC8AE /* MyCellTableViewCell.h */,
+				D09DB64018EB9B4C00ECC8AE /* MyCellTableViewCell.m */,
 				D09DB63918EB486100ECC8AE /* RootViewController.h */,
 				D09DB63A18EB486100ECC8AE /* RootViewController.m */,
 			);
@@ -263,10 +268,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D09DB61518EB429F00ECC8AE /* AppDelegate.m in Sources */,
-				D09DB63E18EB587A00ECC8AE /* Character.m in Sources */,
+				D09DB64118EB9B4C00ECC8AE /* MyCellTableViewCell.m in Sources */,
 				D09DB61818EB429F00ECC8AE /* Lost.xcdatamodeld in Sources */,
 				D09DB63B18EB486100ECC8AE /* RootViewController.m in Sources */,
 				D09DB61118EB429F00ECC8AE /* main.m in Sources */,
+				D09DB64418EB9FEC00ECC8AE /* Character.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,6 +469,7 @@
 				D09DB63318EB429F00ECC8AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D09DB63418EB429F00ECC8AE /* Build configuration list for PBXNativeTarget "LostTests" */ = {
 			isa = XCConfigurationList;
@@ -471,6 +478,7 @@
 				D09DB63618EB429F00ECC8AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

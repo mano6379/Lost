@@ -14,5 +14,6 @@
 
 @property (nonatomic, retain) NSString * actor;
 @property (nonatomic, retain) NSString * passenger;
+@property (nonatomic, retain) NSString * sex;
 
 @end
