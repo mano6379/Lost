@@ -34,9 +34,12 @@
 {
     
         NSFetchRequest* request = [[NSFetchRequest alloc]initWithEntityName:@"Character"];
-        NSSortDescriptor* sortDescriptor1 = [[NSSortDescriptor alloc]initWithKey:@"actor" ascending:YES];
-        NSSortDescriptor* sortDescriptor2 = [[NSSortDescriptor alloc]initWithKey:@"passenger" ascending:YES];
-        NSArray* sortDescriptors = [NSArray arrayWithObjects:sortDescriptor1, nil];
+    //if you want to see the predicate property work, simply uncomment the line below
+    //request.predicate = [NSPredicate predicateWithFormat:@"actor contains %@", @"Z"];
+    
+    NSSortDescriptor* sortDescriptor1 = [[NSSortDescriptor alloc]initWithKey:@"actor" ascending:YES];
+    NSSortDescriptor* sortDescriptor2 = [[NSSortDescriptor alloc]initWithKey:@"passenger" ascending:YES];
+    NSArray* sortDescriptors = [NSArray arrayWithObjects:sortDescriptor1, nil];
                 //assign the request to the properties "sortDescriptors"
                 request.sortDescriptors = sortDescriptors;
     self.charactersArray = [self.managedObjectContext executeFetchRequest:request error:nil];
@@ -49,10 +52,15 @@
     //[self.lostTableVlew reloadData];
 
 
-    BOOL isCoreDataEmpty = self.charactersArray.count == 0;
-    
-    if (isCoreDataEmpty)
+    //BOOL isCoreDataEmpty = self.charactersArray.count == 0;
+    BOOL isFirstRun= ![[NSUserDefaults standardUserDefaults] boolForKey:@"hasRunOnce"];
+    if(isFirstRun)
     {
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults setBool:YES forKey:@"hasRunOnce"];
+        [userDefaults synchronize];
+   
+    
         // get (from internet) array of dictionaries that represent lost characters
         NSURL *url = [NSURL URLWithString:@"http://s3.amazonaws.com/mobile-makers-assets/app/public/ckeditor_assets/attachments/2/lost.plist"];
         self.charactersArray = [NSArray arrayWithContentsOfURL:url];
